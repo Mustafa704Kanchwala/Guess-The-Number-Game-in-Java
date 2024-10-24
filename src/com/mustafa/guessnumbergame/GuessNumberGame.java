@@ -20,29 +20,48 @@ public class GuessNumberGame {
 		mode = obj1.nextInt();
 		
 		val = obj2.nextInt(1,101);
-		System.out.print(val);
+		System.out.println(val);
 		
 		if(mode == 1) {
 			System.out.print("Guess Number :");
+			System.out.println("You selected the easy mode\n\n You have 10 tries:\n");
 			for(int game = 0; game < EASY_MODE; game++) {
 				//Easy mode code goes here//
-				System.out.println("You selected the easy mode\n\n You have 10 tries:\n");
+				
 				g_val = obj1.nextInt();
 				if(g_val < val) {
 					System.out.println("Too Less!!");
 				}
-				if(g_val > val) {
+				else if(g_val > val) {
 					System.out.println("Too High!!");					
 				}
-				if(g_val == val) {
+				else if(g_val == val) {
 					System.out.print("Correct Guess "+plyr+" :)");
 					break;
 				}
-				else {
-					System.out.println("Better luck next time!!");
-				}
 			}
 		
+		}
+		else if(mode == 2) {
+			System.out.print("Guess Number :");
+			System.out.println("You selected the hard mode\n\n You have 05 tries:\n");
+			for(int game = 0; game < HARD_MODE; game++) {
+				//Hard mode code goes here//
+				g_val = obj1.nextInt();
+				if(g_val < val) {
+					System.out.println("Too Less!!");
+				}
+				else if(g_val > val) {
+					System.out.println("Too High!!");					
+				}
+				else if(g_val == val) {
+					System.out.print("Correct Guess "+plyr+" :)");
+					break;
+				}
+			}
+		}
+		else {
+			System.out.println("Invalid Input!!");
 		}
 	}
 }
