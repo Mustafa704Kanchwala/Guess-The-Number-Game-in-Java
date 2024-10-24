@@ -12,7 +12,7 @@ public class GuessNumberGame {
 		Scanner obj1 = new Scanner(System.in);
 		Random obj2 = new Random();
 		
-		System.out.print("Enter the name of player :");
+		System.out.println("Enter the name of player :");
 		plyr = obj1.nextLine();
 		System.out.println("\nWellcome "+plyr+" :)");
 		
@@ -20,27 +20,29 @@ public class GuessNumberGame {
 		mode = obj1.nextInt();
 		
 		val = obj2.nextInt(1,101);
+		System.out.print(val);
 		
 		if(mode == 1) {
 			System.out.print("Guess Number :");
 			for(int game = 0; game < EASY_MODE; game++) {
 				//Easy mode code goes here//
-				
+				System.out.println("You selected the easy mode\n\n You have 10 tries:\n");
 				g_val = obj1.nextInt();
+				if(g_val < val) {
+					System.out.println("Too Less!!");
+				}
+				if(g_val > val) {
+					System.out.println("Too High!!");					
+				}
 				if(g_val == val) {
 					System.out.print("Correct Guess "+plyr+" :)");
+					break;
+				}
+				else {
+					System.out.println("Better luck next time!!");
 				}
 			}
 		
-		}
-		
-		
-		else if(mode == 2) {
-			System.out.println("You selected the hard mode\n\n You have 5 tries:\n");
-		}
-		
-		else {
-			System.out.println("Invalid input :(");
 		}
 	}
 }
